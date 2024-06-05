@@ -67,8 +67,8 @@ const Detail = () => {
             />
           ) : (
             <>
-              {covidArr.map((i, key) => (
-                <InfoCard item={i} key={key} />
+              {covidArr.map((i, index) => (
+                <InfoCard item={i} key={index} />
               ))}
             </>
           )}

@@ -13,7 +13,6 @@ const Main = () => {
   const [geo, setGeo] = useState();
   const geoUrl = "https://ismailarilik.com/react-covid-maps/geo.json";
 
-  console.log(geo);
   return (
     <div className="h-[calc(100vh-74px)] text-white bg-zinc-800 overflow-hidden flex flex-col justify-center items-center wrapper md:pt-20">
       <h1 className="px-6 pb-6">
@@ -32,7 +31,7 @@ const Main = () => {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
-                <Link to={`/detail?code=${geo.id}`}>
+                <Link key={geo.rsmKey} to={`/detail?code=${geo.id}`}>
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
@@ -42,7 +41,6 @@ const Main = () => {
                       default: {
                         fill: "#EEE",
                       },
-
                       hover: {
                         fill: "rgb(54 197 94)",
                       },
